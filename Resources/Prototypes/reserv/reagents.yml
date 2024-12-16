@@ -1,0 +1,72 @@
+- type: reagent
+  id: AdrenalImplantReagent
+  name: reagent-name-stimulants
+  group: Narcotics
+  desc: reagent-desc-stimulants
+  physicalDesc: reagent-physical-desc-energizing
+  flavor: sharp
+  color: "#9A040E"
+  boilingPoint: 212.0
+  meltingPoint: 170.0
+  metabolisms:
+    Narcotic:
+      metabolismRate: 1.0
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.5
+        sprintSpeedModifier: 3.0
+      - !type:HealthChange
+        conditions:
+          - !type:ReagentThreshold
+            min: 80 #please wait 3 minutes before using another stimpack
+        damage:
+          types:
+            Poison: 2
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: ChloralHydrate
+          min: 1
+        reagent: ChloralHydrate
+        amount: -10
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: StaminaModifier
+        component: StaminaModifier
+        time: 3
+        type: Add
+      - !type:GenericStatusEffect
+        key: ForcedSleep
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Haloperidol
+          max: 0.01
+        key: Drowsiness
+        time: 10
+        type: Remove
+    Medicine:
+      metabolismRate: 1.0
+      effects:
+        - !type:ResetNarcolepsy
+        - !type:SatiateHunger
+          factor: 1
+        - !type:SatiateThirst
+          factor: 1
+        - !type:HealthChange
+          conditions:
+          - !type:TotalDamage
+            min: 70 # only heals when you're more dead than alive
+          damage: # heals at the same rate as tricordrazine, doesn't heal poison because if you OD'd I'm not giving you a safety net
+            groups:
+              Burn: -1
+              Brute: -1
