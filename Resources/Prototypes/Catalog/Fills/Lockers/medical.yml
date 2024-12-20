@@ -124,6 +124,7 @@
       - id: HandLabeler
         prob: 0.5
 
+# Reserve
 - type: entity
   id: LockerParamedicFilled
   suffix: Filled
@@ -143,4 +144,5 @@
       - id: ClothingMaskSterile
       - id: HandheldGPSBasic
       - id: MedkitFilled
+      - id: HandheldCrewMonitor
         prob: 0.3

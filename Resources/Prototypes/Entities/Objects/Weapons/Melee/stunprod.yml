@@ -43,8 +43,8 @@
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
-    maxCharge: 360
-    startingCharge: 360
+    maxCharge: 1080
+    startingCharge: 1080
   - type: UseDelay
   - type: Item
     heldPrefix: off

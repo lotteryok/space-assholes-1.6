@@ -412,6 +412,8 @@
   - type: Tag
     tags: []
 
+
+# Reserve
 - type: entity
   name: hyperzine injector
   parent: [ChemicalMedipen, BaseSyndicateContraband]
@@ -428,7 +430,7 @@
       pen:
         maxVol: 30
         reagents:
-        - ReagentId: Stimulants
+        - ReagentId: StimpakReagent
           Quantity: 30
   - type: SolutionContainerVisuals
     maxFillLevels: 1
